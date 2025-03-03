@@ -1,0 +1,59 @@
+version: '3.8'
+
+services:
+  trust-api:
+    build: .
+    container_name: trust-score-api
+    ports:
+      - "8000:8000"
+    depends_on:
+      - postgres
+      - redis
+    environment:
+      DATABASE_URL: postgresql://admin:password@postgres:5432/trustdb
+      REDIS_URL: redis://redis:6379/0
+      BLOCKCHAIN_PROVIDER: https://mainnet.infura.io/v3/2b550ef047814ff68ebf0b9ecd4c1f91
+    networks:
+      - trust-network
+
+  postgres:
+    image: postgres:15
+    container_name: trust-db
+    restart: always
+    environment:
+      POSTGRES_USER: admin
+      POSTGRES_PASSWORD: password
+      POSTGRES_DB: trustdb
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    ports:
+      - "5432:5432"
+    networks:
+      - trust-network
+
+  redis:
+    image: redis:7
+    container_name: trust-cache
+    restart: always
+    ports:
+      - "6379:6379"
+    networks:
+      - trust-network
+
+  metabase:
+    image: metabase/metabase
+    container_name: trust-dashboard
+    restart: always
+    ports:
+      - "3000:3000"
+    depends_on:
+      - postgres
+    networks:
+      - trust-network
+
+volumes:
+  postgres_data:
+
+networks:
+  trust-network:
+    driver: bridge

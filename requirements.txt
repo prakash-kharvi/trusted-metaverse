@@ -1,0 +1,37 @@
+# Web3 & Blockchain Libraries
+web3==6.5.0                    # Interact with Ethereum, Polygon
+eth-account==0.9.0             # Ethereum account management
+#ens==0.5.0                     # Ethereum Name Service (ENS) lookup
+
+# Data Processing & Storage
+pandas==2.1.4                  # Data analysis for trust score computation
+numpy==1.26.0                  # Numerical operations
+sqlalchemy==2.0.27              # ORM for database interactions
+
+# API Development
+fastapi==0.110.0               # Fast API framework for trust score endpoints
+uvicorn==0.29.0                # ASGI server for FastAPI
+requests==2.31.0               # API calls (for blockchain lookups)
+
+# AI/ML for Behavioral Analysis
+scikit-learn==1.6.1            # Machine learning models for behavior consistency
+tensorflow==2.18.0             # Deep learning models (optional)
+joblib==1.3.0                  # Model serialization
+imbalanced-learn==0.11.0       # Handling imbalanced datasets for anomaly detection
+
+# Visualization & Dashboards
+matplotlib==3.8.0              # Bar charts for trust score breakdown
+dash==2.15.0                   # Interactive dashboards
+
+# Security & Logging
+pyjwt==2.8.0                   # JWT authentication for secure access
+bcrypt==4.1.2                  # Password hashing for authentication (optional)
+loguru==0.7.2                  # Enhanced logging
+
+# Device & Contextual Verification
+geoip2==5.0.1                  # IP geolocation tracking
+#fingerprintjs==0.1.6           # Device fingerprinting
+
+# Deployment & Containerization
+gunicorn==21.2.0               # Production WSGI server
+docker==7.0.0                  # Docker SDK for Python

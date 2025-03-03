@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trust Score Dashboard</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='dashboard.css') }}">
+</head>
+<body>
+    <h1>Trust Score Dashboard</h1>
+
+    <div class="container">
+        <h2>Trust Score Summary</h2>
+        <table id="trust-score-table">
+            <thead>
+                <tr>
+                    <th>Identity verification (I) score</th>
+                    <th>Asset Ownership (A) score</th>
+                    <th>behavioral consistency (B) score</th>
+                    <th>contextual verfication (C) score</th>
+                    <th>Total Trust Score (%)</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for user in users %}
+                <tr>
+                    <td>{{ user.identity_score}}</td>
+                    <td>{{ user.asset_score }}</td>
+                    <td>{{ user.behavior_score }}</td>
+                    <td>{{ user.context_score }}</td>
+                    <td>{{ user.trust_score }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</body>
+</html>

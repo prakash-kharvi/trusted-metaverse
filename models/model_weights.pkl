@@ -1,0 +1,1 @@
+#This file stores the trained AI model in a serialized format using joblib. It is not manually edited, but will be created automatically by train_model.py.
